@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+    pihole:
+        container_name: pihole
+        image: pihole/pihole:latest
+        ports:
+            - "80:80"
+            - "53:53/udp"
+            - "53:53/tcp"
+        environment:
+            TZ: America/New_York
+            VIRTUAL_HOST: pi.hole
+            WEBPASSWORD:
+            TEMPERATUREUNIT: f
+        volumes:
+            - 'pihole:/etc/pihole'
+            - 'dnsmasq:/etc/dnsmasq.d'
+        restart: unless-stopped
+volumes:
+    pihole:
+    dnsmasq:
