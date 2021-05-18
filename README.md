@@ -8,6 +8,7 @@ In-home networking infrastructure. Currently being used on a Pine64+ board over 
 # put deployment secrets in .env file
 cat > .env <<EOF
 WEBPASSWORD=<pihole web ui password>
+ServerIP=<server ip>
 EOF
 
 # deploy
