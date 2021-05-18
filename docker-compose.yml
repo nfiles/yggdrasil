@@ -16,14 +16,14 @@ services:
             - "53:53/udp"
             - "53:53/tcp"
         environment:
-            - DNS1='10.0.0.2#5054'
-            - DNS2=''
+            - PIHOLE_DNS_=127.0.0.1#5054
+            - PIHOLE_DNS_=
             - TZ=America/New_York
             - VIRTUAL_HOST=pi.hole
             - WEBPASSWORD=
             - TEMPERATUREUNIT=f
             - IPv6=false
-            - ServerIP=
+            - ServerIP=${ServerIP}
             # - DNSMASQ_LISTENING=all
         volumes:
             - 'pihole:/etc/pihole'
