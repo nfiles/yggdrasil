@@ -1,3 +1,4 @@
 {
-	"iptables": false
+	"iptables": false,
+	"dns": "1.1.1.1"
 }
