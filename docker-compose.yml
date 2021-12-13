@@ -17,7 +17,6 @@ services:
             - "53:53/tcp"
         environment:
             - PIHOLE_DNS_=127.0.0.1#5054
-            - PIHOLE_DNS_=
             - TZ=America/New_York
             - VIRTUAL_HOST=pi.hole
             - WEBPASSWORD=
@@ -33,6 +32,19 @@ services:
             - 127.0.0.1
             - 1.1.1.1
 
+    homeassistant:
+        container_name: homeassistant
+        image: "ghcr.io/home-assistant/home-assistant:stable"
+        ports:
+            - "8123:8123"
+        volumes:
+            - homeassistant:/config
+            - /etc/localtime:/etc/localtime:ro
+        restart: unless-stopped
+        privileged: true
+        network_mode: host
+
 volumes:
     pihole:
     dnsmasq:
+    homeassistant:
