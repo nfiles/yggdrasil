@@ -44,6 +44,22 @@ services:
         privileged: true
         network_mode: host
 
+    ddclient:
+        container_name: ddclient
+        build: ./ddclient
+        restart: unless-stopped
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/New_York
+            - HOMELOGIN=${HOMELOGIN}
+            - HOMEPASSWD=${HOMEPASSWD}
+            - PIHOLELOGIN=${PIHOLELOGIN}
+            - PIHOLEPASSWD=${PIHOLEPASSWD}
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+        network_mode: host
+
 volumes:
     pihole:
     dnsmasq:
