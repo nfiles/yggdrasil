@@ -12,13 +12,13 @@ services:
         restart: unless-stopped
         hostname: pihole
         ports:
-            - "80:80"
+            - "8080:80"
             - "53:53/udp"
             - "53:53/tcp"
         environment:
             - PIHOLE_DNS_=127.0.0.1#5054
             - TZ=America/New_York
-            - VIRTUAL_HOST=pi.hole
+            - VIRTUAL_HOST=pihole.nfiles.dev
             - WEBPASSWORD=
             - TEMPERATUREUNIT=f
             - IPv6=false
@@ -27,9 +27,8 @@ services:
         volumes:
             - 'pihole:/etc/pihole'
             - 'dnsmasq:/etc/dnsmasq.d'
-        network_mode: host
+        # network_mode: host
         dns:
-            - 127.0.0.1
             - 1.1.1.1
 
     homeassistant:
@@ -60,7 +59,25 @@ services:
             - /etc/localtime:/etc/localtime:ro
         network_mode: host
 
+    caddy:
+        container_name: caddy
+        build: ./caddy
+        restart: unless-stopped
+        environment:
+            - HOSTEMAIL=${HOSTEMAIL}
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - caddydata:/data
+            - caddyconfig:/config
+        network_mode: host
+        privileged: true
+
 volumes:
     pihole:
     dnsmasq:
     homeassistant:
+    caddy:
+    caddydata:
+    caddyconfig:
