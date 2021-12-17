@@ -10,10 +10,6 @@ home.nfiles.dev {
 	reverse_proxy localhost:8123
 }
 
-pihole.nfiles.dev {
-	reverse_proxy localhost:8080
-}
-
 http://pi.hole:80 {
 	reverse_proxy http://100.98.216.35:8080
 }

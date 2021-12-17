@@ -53,8 +53,6 @@ services:
             - TZ=America/New_York
             - HOMELOGIN=${HOMELOGIN}
             - HOMEPASSWD=${HOMEPASSWD}
-            - PIHOLELOGIN=${PIHOLELOGIN}
-            - PIHOLEPASSWD=${PIHOLEPASSWD}
         volumes:
             - /etc/localtime:/etc/localtime:ro
         network_mode: host

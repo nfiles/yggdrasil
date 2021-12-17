@@ -11,8 +11,6 @@ WEBPASSWORD=<pihole web ui password>
 ServerIP=<server ip>
 HOMELOGIN=<generated login for home.nfiles.dev ddns>
 HOMEPASSWD=<generated password for home.nfiles.dev ddns>
-PIHOLELOGIN=<generated login for pihole.nfiles.dev ddns>
-PIHOLEPASSWD=<generated password for pihole.nfiles.dev ddns>
 EOF
 
 # deploy
