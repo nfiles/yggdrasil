@@ -14,12 +14,8 @@ ufw allow in on tailscale0 to any port 22
 # http/https
 ufw allow in on tailscale0 to any port 80
 ufw allow in on tailscale0 to any port 443
-# pihole web UI
-ufw allow in on tailscale0 to any port 8080
 # pihole DNS
 ufw allow in on tailscale0 to any port 53
-# Home Assistant
-ufw allow in on tailscale0 to any port 8123
 # mosh
 ufw allow in on tailscale0 to any port 60000:60100 proto udp
 
