@@ -1,48 +1,5 @@
 version: "3.8"
 services:
-    cloudflared:
-        container_name: cloudflared
-        image: visibilityspots/cloudflared:arm64
-        restart: unless-stopped
-        network_mode: host
-
-    pihole:
-        container_name: pihole
-        image: pihole/pihole:latest
-        restart: unless-stopped
-        hostname: pihole
-        ports:
-            - "8080:80"
-            - "53:53/udp"
-            - "53:53/tcp"
-        environment:
-            - PIHOLE_DNS_=127.0.0.1#5054
-            - TZ=America/New_York
-            - VIRTUAL_HOST=pihole.nfiles.dev
-            - WEBPASSWORD=
-            - TEMPERATUREUNIT=f
-            - IPv6=false
-            - ServerIP=${ServerIP}
-            # - DNSMASQ_LISTENING=all
-        volumes:
-            - 'pihole:/etc/pihole'
-            - 'dnsmasq:/etc/dnsmasq.d'
-        # network_mode: host
-        dns:
-            - 1.1.1.1
-
-    homeassistant:
-        container_name: homeassistant
-        image: "ghcr.io/home-assistant/home-assistant:stable"
-        ports:
-            - "8123:8123"
-        volumes:
-            - homeassistant:/config
-            - /etc/localtime:/etc/localtime:ro
-        restart: unless-stopped
-        privileged: true
-        network_mode: host
-
     ddclient:
         container_name: ddclient
         build: ./ddclient
@@ -73,9 +30,6 @@ services:
         privileged: true
 
 volumes:
-    pihole:
-    dnsmasq:
-    homeassistant:
     caddy:
     caddydata:
     caddyconfig:
