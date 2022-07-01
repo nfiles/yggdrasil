@@ -7,6 +7,7 @@ In-home networking infrastructure. Currently being used on a Pine64+ board over 
 ```bash
 # put deployment secrets in .env file
 cat > .env <<EOF
+HOSTEMAIL=<caddy host email address>
 WEBPASSWORD=<pihole web ui password>
 ServerIP=<server ip>
 HOMELOGIN=<generated login for home.nfiles.dev ddns>
