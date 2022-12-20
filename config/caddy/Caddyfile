@@ -11,6 +11,17 @@ home.nfiles.dev {
 	reverse_proxy localhost:8123
 }
 
+notes.nfiles.dev {
+	header X-Clacks-Overhead "GNU Terry Pratchett"
+	reverse_proxy localhost:22300
+}
+
+# https://yggdrasil.rat-basilisk.ts.net:3030 {
+yggdrasil.rat-basilisk.ts.net {
+	header X-Clacks-Overhead "GNU Terry Pratchett"
+	reverse_proxy localhost:3001
+}
+
 http://pi.hole:80 {
 	reverse_proxy http://100.98.216.35:8080
 }
