@@ -36,5 +36,7 @@ Notes for containerized `cloudflared` heavily drawn from [https://visibilityspot
 
 # TODO
 
-- [ ] mount local config directory
+- [X] mount local config directory
 - [ ] local install script
+- [ ] authelia?
+- [ ] backups?
