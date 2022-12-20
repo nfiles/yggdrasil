@@ -23,6 +23,9 @@ POSTGRES_DATABASE=joplin
 JOPLIN_APP_BASE_URL=<joplin_base_url>
 EOF
 
+# copy config files to host
+./copy-config.sh <host> /yggdrasil
+
 # deploy
 docker-compose up
 ```
