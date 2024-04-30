@@ -69,6 +69,7 @@ services:
         container_name: uptime-kuma
         volumes:
             - /yggdrasil/volumes/uptime-kuma-data:/app/data
+            - /var/run/docker.sock:/var/run/docker.sock
         ports:
             - "4040:3001"
         restart: always
