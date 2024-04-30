@@ -25,3 +25,8 @@ yggdrasil.rat-basilisk.ts.net {
 http://pi.hole:80 {
 	reverse_proxy http://100.98.216.35:8080
 }
+
+https://status.nfiles.dev {
+	header X-Clacks-Overhead "GNU Terry Pratchett"
+	reverse_proxy http://localhost:4040
+}
